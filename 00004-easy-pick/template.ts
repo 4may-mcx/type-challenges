@@ -5,3 +5,17 @@ type MyPick<T, K extends keyof T> = {
   // 执行遍历
   [P in K]: T[P];
 };
+
+// js 思路对比
+
+function myPick(todo, keys) {
+  const obj = {};
+
+  keys.forEach((key) => {
+    if (key in todo) {
+      obj[key] = todo[key];
+    }
+  });
+
+  return obj;
+}
